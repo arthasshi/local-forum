@@ -43,6 +43,41 @@
           </div>
         </div>
       </div>
+      <div class="withe"></div>
+        <div class="top-map">
+          <div class="gps">节点导航</div>
+          <div class="all">浏览全部节点</div>
+        </div>
+        <div class="border"></div>
+        <div class="fir-map">
+          <div class="Go-lan">Go语言</div>
+          <div>balala</div>
+          <div>balalala</div>
+        </div>
+        <div class="border"></div>
+        <div class="sce-map">
+          <div class="geek">Geek</div>
+          <div>balala</div>
+          <div>balalala</div>
+        </div>
+        <div class="border"></div>
+        <div class="thd-map">
+        <div class="found">分享与探索</div>
+        <div>balala</div>
+        <div>balalala</div>
+        </div>
+        <div class="border"></div>
+        <div class="for-map">
+          <div class="go-china">Go中文网</div>
+          <div>balala</div>
+          <div>balalala</div>
+        </div>
+        <div class="border"></div>
+        <div class="fin-map">
+          <div class="life">生活</div>
+          <div>balala</div>
+          <div>balalala</div>
+        </div>
     </mu-paper>
     <div class="right" >
       <mu-paper class="user-info" :z-depth='1'>
@@ -69,8 +104,8 @@
       <mu-paper class="user-info" :z-depth='1'>
         哈哈哈
       </mu-paper>
+      
     </div>
-
   </div>
 </template>
 
@@ -151,6 +186,81 @@ export default {
       width: 100%;
       margin-bottom: 20px;
     }
+  };
+  .withe{
+    height: 10px;
+    width: 100%;
+    background:#f2f2f2; 
+  };
+  .top-map{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    height: 30px;
+  };
+  .gps{
+    margin-right: 800px;
+    color: #666;
+  };
+  .fir-map{
+    display: flex;
+    width: 100%;
+    height: 30px
+  };
+  .Go-lan{
+    color: #666;
+    width: 90px;
+    text-align:right;
+    margin-right: 10px;
+  };
+  .sce-map{
+    display: flex;
+    width: 100%;
+    height: 30px;
+  };
+  .geek{
+    color: #666;
+    width: 90px;
+    text-align:right;
+    margin-right: 10px;
+  };
+  .thd-map{
+    display: flex;
+    width: 100%;
+    height: 30px;
   }
+  .found{
+    width: 90px;
+    text-align:right;
+    margin-right: 10px;
+    color: #666;
+  };
+  .for-map{
+    display: flex;
+    width: 100%;
+    height: 30px;
+  };
+  .go-china{
+    width: 90px;
+    text-align:right;
+    margin-right: 10px;
+    color: #666;
+  };
+  .fin-map{
+    display:flex;
+    width: 100%;
+    height: 30px;
+  };
+  .life{
+    width: 90px;
+    text-align:right;
+    margin-right: 10px;
+    color: #666;
+    };
+    .border{
+      height: 2px;
+      width: 100%;
+      background: #f2f2f2
+    }
 }
 </style>
