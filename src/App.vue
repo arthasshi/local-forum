@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <mu-paper class="header" :z-depth="2" >
+    <mu-paper class="header" :z-depth="3" >
       <div class="title">走廊</div>
       <mu-text-field class="serach" placeholder="搜索"></mu-text-field>
       <div class="sub-menu">
