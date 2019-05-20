@@ -5,6 +5,8 @@ import {
   TextField,
   Paper,
   Tabs,
+  Breadcrumbs,
+  Icon,
 } from 'muse-ui';
 import App from './App.vue';
 import router from './router';
@@ -18,6 +20,9 @@ Vue.use(Select);
 Vue.use(TextField);
 Vue.use(Paper);
 Vue.use(Tabs);
+Vue.use(Breadcrumbs);
+Vue.use(Icon);
+
 
 
 Vue.config.productionTip = false;

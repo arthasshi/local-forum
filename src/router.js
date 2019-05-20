@@ -12,6 +12,28 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      children: [
+        {
+          path: '/tittle-tattle',
+          name: 'TittleTattle',
+          component: () => import('./views/tittle-tattle.vue'),
+        },
+        {
+          path: '/apple',
+          name: 'apple',
+          component: () => import('./views/apple.vue'),
+        },
+        {
+          path: '/path',
+          name: 'path',
+          component: () => import('./views/path.vue'),
+        },
+        {
+          path: '/ghost-market',
+          name: 'GhostMarket',
+          component: () => import('./views/ghost-market.vue'),
+        },
+      ],
     },
     {
       path: '/about',
@@ -21,5 +43,6 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
+
   ],
 });

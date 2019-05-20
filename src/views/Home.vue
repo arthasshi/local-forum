@@ -3,12 +3,12 @@
     <mu-paper class="left" :z-depth="1">
        <mu-tabs :value.sync="active1" inverse color="primary"
       indicator-color="primary" text-color="rgba(0, 0, 0, .54)"  center>
-      <mu-tab ripple>杂谈</mu-tab>
-      <mu-tab ripple>Apple</mu-tab>
-      <mu-tab ripple>过道儿</mu-tab>
-      <mu-tab ripple>鬼市</mu-tab>
+      <mu-tab ripple @click="gotoPage('/tittle-tattle')" >杂谈</mu-tab>
+      <mu-tab ripple @click="gotoPage('/apple')">Apple</mu-tab>
+      <mu-tab ripple @click="gotoPage('/path')">过道儿</mu-tab>
+      <mu-tab ripple @click="gotoPage('/ghost-market')">鬼市</mu-tab>
       </mu-tabs>
-      <div class="content">
+      <div class="content" v-if='visible'>
         <div class="item">
           <div class="avatar"></div>
           <div class="title-other">
@@ -43,6 +43,7 @@
           </div>
         </div>
       </div>
+      <router-view/>
     </mu-paper>
     <div class="right" >
       <mu-paper class="user-info" :z-depth='1'>
@@ -70,7 +71,6 @@
         哈哈哈
       </mu-paper>
     </div>
-
   </div>
 </template>
 
@@ -80,6 +80,17 @@
 export default {
   name: 'home',
   components: {
+  },
+  data(){
+   return {
+     visible:true,
+   }
+  },
+  methods: {
+    gotoPage(pathStr) {
+      this.$router.push(pathStr);
+      this.visible = false;
+    },
   },
 };
 </script>

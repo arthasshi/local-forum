@@ -16,21 +16,21 @@ module.exports = {
   //   configureWebpack: {
   //     externals
   //   },
-  devServer: {
-    port: 8081,
-    host: '0.0.0.0',
-    open: true,
-    proxy: {
-      '/': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          '^/': '',
-        },
-      },
-    },
-  },
+  // devServer: {
+  //   port: 8081,
+  //   host: '0.0.0.0',
+  //   open: true,
+  //   proxy: {
+  //     '/': {
+  //       target: 'http://localhost:3000',
+  //       changeOrigin: true,
+  //       ws: true,
+  //       pathRewrite: {
+  //         '^/': '',
+  //       },
+  //     },
+  //   },
+  // },
 
 //   pluginOptions: {
 //     'style-resources-loader': {
