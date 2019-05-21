@@ -4,7 +4,7 @@
       <div class="title">走廊</div>
       <mu-text-field class="serach" placeholder="搜索"></mu-text-field>
       <div class="sub-menu">
-        <mu-button flat>首页</mu-button>
+        <mu-button flat @click="test()">首页</mu-button>
         <mu-button flat>我</mu-button>
         <mu-button flat>设置</mu-button>
         <mu-button flat>登出</mu-button>
@@ -13,6 +13,17 @@
     <router-view class="view"/>
   </div>
 </template>
+<script>
+import bus from '@/utils/bus'
+export default {
+  methods: {
+    test() {
+      bus.$emit('vis');
+    }
+  },
+}
+</script>
+
 
 <style lang="scss">
 %row{

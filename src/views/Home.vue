@@ -7,6 +7,8 @@
       <mu-tab ripple>Apple</mu-tab>
       <mu-tab ripple>过道儿</mu-tab>
       <mu-tab ripple>鬼市</mu-tab>
+      <mu-tab ripple v-if="visible">编程</mu-tab>
+
       </mu-tabs>
       <div class="content">
         <div class="item">
@@ -76,10 +78,21 @@
 
 <script>
 // @ is an alias to /src
+import bus from '@/utils/bus'
 
 export default {
   name: 'home',
+  data() {
+    return {
+      visible: false
+    }
+  },
   components: {
+  },
+  mounted () {
+    bus.$on('vis',()=>{
+      this.visible = !this.visible
+    })
   },
 };
 </script>
