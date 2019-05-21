@@ -16,7 +16,7 @@ module.exports = {
   //   configureWebpack: {
   //     externals
   //   },
-  devServer: {
+  /* devServer: {
     port: 8081,
     host: '0.0.0.0',
     open: true,
@@ -30,7 +30,7 @@ module.exports = {
         },
       },
     },
-  },
+  }, */
 
 //   pluginOptions: {
 //     'style-resources-loader': {

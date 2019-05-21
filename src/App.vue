@@ -5,14 +5,27 @@
       <mu-text-field class="serach" placeholder="搜索"></mu-text-field>
       <div class="sub-menu">
         <mu-button flat>首页</mu-button>
-        <mu-button flat>我</mu-button>
+        <mu-button flat @click="gotoLink">我</mu-button>
         <mu-button flat>设置</mu-button>
         <mu-button flat>登出</mu-button>
       </div>
+      <router-link to="/personal">请点我</router-link>
+
     </mu-paper>
     <router-view class="view"/>
   </div>
 </template>
+<script>
+export default {
+  methosd: {
+    gotoLink() {
+      this.$router.push('/personal');
+    },
+  },
+};
+
+</script>
+
 
 <style lang="scss">
 %row{
