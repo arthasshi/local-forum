@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <div class="menu">
-        <button class="bt">首页</button>
+        <button class="bt" @click="gotoHome">首页</button>
         <button class="bt">会员</button>
         <button class="bt">我的信息</button>
     </div>
@@ -63,6 +63,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    gotoHome() {
+      this.$router.push('/');
+    },
   },
 };
 </script>
