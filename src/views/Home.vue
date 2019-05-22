@@ -1,151 +1,153 @@
 <template>
-  <div class="home">
-    <mu-paper class="left" :z-depth="1">
-       <mu-tabs :value.sync="active1" inverse color="primary"
-      indicator-color="primary" text-color="rgba(0, 0, 0, .54)"  center>
-      <mu-tab ripple @click="gotoPage('/tittle-tattle')" >杂谈</mu-tab>
-      <mu-tab ripple @click="gotoPage('/apple')">Apple</mu-tab>
-      <mu-tab ripple @click="gotoPage('/path')">过道儿</mu-tab>
-      <mu-tab ripple @click="gotoPage('/ghost-market')">鬼市</mu-tab>
-      </mu-tabs>
-      <div class="content" v-if='visible'>
-        <div class="item">
-          <div class="avatar"></div>
-          <div class="title-other">
-            <div class="title">
-              扣篮大赛来打卡了
+  <div>
+    <header-adv :url="url" @close-adv="hadleClick" v-if="show"></header-adv>
+    <div class="home">
+      <router-view v-if="visible ==false"></router-view>
+      <mu-paper class="left" :z-depth="1" v-else>
+        <mu-tabs
+          :value.sync="active1"
+          inverse
+          color="primary"
+          indicator-color="primary"
+          text-color="rgba(0, 0, 0, .54)"
+          center
+        >
+          <mu-tab ripple @click="changeList('杂谈')">杂谈</mu-tab>
+          <mu-tab ripple @click="changeList('apple')">Apple</mu-tab>
+          <mu-tab ripple @click="changeList('过道儿')">过道儿</mu-tab>
+          <mu-tab ripple @click="changeList('鬼市')">鬼市</mu-tab>
+        </mu-tabs>
+        <div class="content">
+          <div class="item">
+            <div class="avatar"></div>
+            <div class="title-other">
+              <div class="title" @click="gotoPage('/details')">扣篮大赛来打卡了</div>
+              <div class="other">哈哈哈·2019-1-1 12:39·</div>
             </div>
-            <div class="other">
-              哈哈哈·2019-1-1 12:39·
+          </div>
+          <div class="item">
+            <div class="avatar"></div>
+            <div class="title-other">
+              <div class="title" @click="gotoPage('/details')">扣篮大赛来打卡了</div>
+              <div class="other">哈哈哈·2019-1-1 12:39·</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="avatar"></div>
+            <div class="title-other">
+              <div class="title" @click="gotoPage('/details')">扣篮大赛来打卡了</div>
+              <div class="other">哈哈哈·2019-1-1 12:39·</div>
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="avatar"></div>
-          <div class="title-other">
-            <div class="title">
-              扣篮大赛来打卡了
-            </div>
-            <div class="other">
-              哈哈哈·2019-1-1 12:39·
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="avatar"></div>
-          <div class="title-other">
-            <div class="title">
-              扣篮大赛来打卡了
-            </div>
-            <div class="other">
-              哈哈哈·2019-1-1 12:39·
-            </div>
-          </div>
-        </div>
+      </mu-paper>
+      <div class="right">
+        <mu-paper class="user-info" :z-depth="1">个人信息</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">广告位</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">我的关注</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">我的收藏</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">哈哈哈</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">哈哈哈</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">哈哈哈</mu-paper>
+        <mu-paper class="user-info" :z-depth="1">哈哈哈</mu-paper>
       </div>
-      <router-view/>
-    </mu-paper>
-    <div class="right" >
-      <mu-paper class="user-info" :z-depth='1'>
-        个人信息
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-        广告位
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-        我的关注
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-       我的收藏
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-        哈哈哈
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-        哈哈哈
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-        哈哈哈
-      </mu-paper>
-      <mu-paper class="user-info" :z-depth='1'>
-        哈哈哈
-      </mu-paper>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import HeaderAdv from "@/components/header-adv";
+import bus from '@/utils/bus.js'
 export default {
-  name: 'home',
+  name: "home",
   components: {
+    HeaderAdv
   },
-  data(){
-   return {
-     visible:true,
-   }
+  data() {
+    return {
+      visible: true,
+      show: true,
+      type: "",
+      url:
+        "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558527926592&di=3e76615e6c1c3b6e0463f48a189526f5&imgtype=0&src=http%3A%2F%2Fwww.grabsun.com%2Fuploads%2Fimages%2F2015%2F69%2FwKiom1SJXAnzN4fZAAEiWmZK-wg849.jpg"
+    };
   },
   methods: {
     gotoPage(pathStr) {
-      this.$router.push(pathStr);
+      this.$router.push({ path: pathStr, query: { type: this.type } });
       this.visible = false;
     },
+    hadleClick() {
+      this.show = false;
+    },
+    changeList(type) {
+      this.type = type;
+    }
   },
+  beforeMounted() {
+    if (this.type != "") {
+      this.visible = false;
+    }
+  },
+  mounted(){
+    let this_ = this;
+    bus.$on('handelChange',msg => this_.visible = msg )
+  }
 };
 </script>
 <style lang="scss" scope="">
-%row{
+%row {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-%col{
+%col {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.home{
+.home {
   width: 100%;
   overflow: hidden;
   @extend %row;
   justify-content: space-between;
   align-items: flex-start;
-  .left{
+  .left {
     width: 72%;
     @extend %col;
     height: 100%;
     justify-content: flex-start;
     background: #fff;
-    .content{
+    .content {
       @extend %col;
       width: 100%;
       justify-content: flex-start;
       margin-top: 10px;
-      .item{
+      .item {
         height: 80px;
         border-bottom: #f2f2f2 solid 1px;
         width: 100%;
         @extend %row;
         justify-content: flex-start;
-        .avatar{
+        .avatar {
           width: 60px;
           height: 60px;
           border-radius: 4px;
           background: #666;
-          margin:0 20px;
+          margin: 0 20px;
         }
-        .title-other{
+        .title-other {
           @extend %col;
           justify-content: space-between;
           align-items: flex-start;
           height: 60px;
 
-          .title{
+          .title {
             color: #666;
             font-size: 20px;
           }
-          .other{
+          .other {
             color: #999;
             font-size: 15px;
           }
@@ -153,11 +155,11 @@ export default {
       }
     }
   }
-  .right{
+  .right {
     width: 26%;
     @extend %col;
     justify-content: flex-start;
-    .user-info{
+    .user-info {
       height: 220px;
       width: 100%;
       margin-bottom: 20px;
