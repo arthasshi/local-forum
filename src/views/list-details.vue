@@ -1,43 +1,8 @@
 <template>
+<!-- 该页面是详情页面 -->
   <div>
     <div class="home">
-      <mu-paper class="left" :z-depth="1">
-        <mu-tabs
-          inverse
-          color="primary"
-          indicator-color="primary"
-          text-color="rgba(0, 0, 0, .54)"
-          center
-        >
-          <mu-tab ripple @click="changeList('杂谈')">杂谈</mu-tab>
-          <mu-tab ripple @click="changeList('apple')">Apple</mu-tab>
-          <mu-tab ripple @click="changeList('过道儿')">过道儿</mu-tab>
-          <mu-tab ripple @click="changeList('鬼市')">鬼市</mu-tab>
-        </mu-tabs>
-        <div class="content">
-          <div class="item">
-            <div class="avatar"></div>
-            <div class="title-other">
-              <div class="title" @click="handleClick">扣篮大赛来打卡了</div>
-              <div class="other">哈哈哈·2019-1-1 12:39·</div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="avatar"></div>
-            <div class="title-other">
-              <div class="title" @click="handleClick">扣篮大赛来打卡了</div>
-              <div class="other">哈哈哈·2019-1-1 12:39·</div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="avatar"></div>
-            <div class="title-other">
-              <div class="title" @click="handleClick">扣篮大赛来打卡了</div>
-              <div class="other">哈哈哈·2019-1-1 12:39·</div>
-            </div>
-          </div>
-        </div>
-      </mu-paper>
+      <details-left :tit="title"></details-left>
       <div class="right">
         <mu-paper class="user-info" :z-depth="1">
           个人信息
@@ -57,26 +22,23 @@
 
 <script>
 // @ is an alias to /src
-import bus from "@/utils/bus.js";
 import PersonalSet from "@/components/personal-set";
+import bus from "@/utils/bus.js";
+import DetailsLeft from "@/components/details-left";
 
 export default {
   name: "home",
   components: {
+    DetailsLeft,
     PersonalSet
   },
   data() {
     return {
-      type: "杂谈"
+      title: ""
     };
   },
-  methods: {
-    changeList(type) {
-      this.type = type;
-    },
-    handleClick() {
-      bus.$emit("gotoDtails", "/list-details", this.type);
-    }
+  mounted() {
+    this.title = this.$route.query.msg;
   }
 };
 </script>

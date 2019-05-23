@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import ListDetails from './views/list-details.vue';
 
 Vue.use(Router);
 
@@ -12,13 +13,16 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-      children: [
-        {
-          path: '/details',
-          name: 'details',
-          component: () => import('./views/details.vue'),
-        },
-      ],
+    },
+    {
+      path: '/personal-data',
+      name: 'PersonalData',
+      component: () => import('./views/personal-data.vue'),
+    },
+    {
+      path: '/list-details',
+      name: 'ListDetails',
+      component: ListDetails,
     },
     {
       path: '/about',

@@ -7,6 +7,8 @@ import {
   Tabs,
   Breadcrumbs,
   Icon,
+  Form,
+  Checkbox,
 } from 'muse-ui';
 import App from './App.vue';
 import router from './router';
@@ -22,9 +24,8 @@ Vue.use(Paper);
 Vue.use(Tabs);
 Vue.use(Breadcrumbs);
 Vue.use(Icon);
-
-
-
+Vue.use(Form);
+Vue.use(Checkbox);
 
 
 Vue.config.productionTip = false;

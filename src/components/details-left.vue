@@ -1,4 +1,5 @@
 <template>
+  <!-- 详情页的左侧组件 -->
   <div class="details">
     <details-header :tit="tit"></details-header>
     <div class="details-tit">
@@ -16,11 +17,9 @@
     </div>
     <div class="bottom">
       <div class="bottom-left">
-        <mu-button color="primary">加入收藏</mu-button>
-        <mu-button color="primary" class="mic">
-          <a>微博</a>
-        </mu-button>
-        <mu-button color="primary">点赞</mu-button>
+        <mu-button small flat color="primary">加入收藏</mu-button>
+        <mu-button small flat color="primary" class="mic">微博</mu-button>
+        <mu-button small flat color="primary">点赞</mu-button>
       </div>
       <div class="count">725 次 点赞</div>
     </div>
@@ -36,39 +35,41 @@
     <div class="add">添加一条回复</div>
     <div class="answer">
       <div class="btn">
-        <div class="normal" :class="{ite:edi}" @click="change">编辑</div>
-        <div class="normal" :class="{ite:pre}" @click="change">预览</div>
+        <mu-button small flat color="primary" :class="{ite:edi}" @click="change">编辑</mu-button>
+        <mu-button small flat color="primary" :class="{ite:pre}" @click="change">预览</mu-button>
       </div>
-      <textarea v-model="answer" v-if="edi" name='answer'></textarea>
+      <textarea v-model="answer" v-if="edi" name="answer"></textarea>
       <div class="preview" v-else>{{answer}}</div>
     </div>
-     <div class='annotation'>
-        <ul>
-          <li>请尽量让自己的回复能够对别人有帮助</li>
-          <li>支持 Markdown 格式, **粗体**、~~删除线~~、`单行代码`</li>
-          <li>支持 @ 本站用户；支持表情（输入 : 提示），见 Emoji cheat sheet</li>
-          <li>图片支持拖拽、截图粘贴等方式上传</li>
-        </ul>
-        <mu-button small color="primary">提交</mu-button>
-      </div>
+    <div class="annotation">
+      <ul>
+        <li>请尽量让自己的回复能够对别人有帮助</li>
+        <li>支持 Markdown 格式, **粗体**、~~删除线~~、`单行代码`</li>
+        <li>支持 @ 本站用户；支持表情（输入 : 提示），见 Emoji cheat sheet</li>
+        <li>图片支持拖拽、截图粘贴等方式上传</li>
+      </ul>
+      <mu-button small color="primary">提交</mu-button>
+    </div>
   </div>
 </template>
 <script>
 import DetailsHeader from "@/components/details-header";
+
 export default {
   name: "TittleTattle",
+  props: ["tit"],
   data() {
     return {
-      tit: "",
       edi: true,
       pre: false,
       answer: "",
+      tti: "",
       list: {
         tit: "Go 语言实现的 Web Server：Caddy，终于发布 1.0 稳定版本了",
         name: "polaris",
         rcord1: " 26天之前 · 735 次点击 · 大约1小时之前 开始浏览 ",
         content1: "官宣了。",
-        link:'www.baidu.com',
+        link: "www.baidu.com",
         content2: "喜欢 Go 的朋友，还是可以试试的。",
         record2:
           "入群交流（该群和以上内容无关）：Go中文网 QQ交流群：731990104 或 加微信入微信群：274768166 备注：入群; 公众号：Go语言中文网"
@@ -79,7 +80,7 @@ export default {
     DetailsHeader
   },
   mounted() {
-    this.tit = this.$route.query.type;
+    this.tti = this.rel;
   },
   methods: {
     change() {
@@ -106,7 +107,7 @@ export default {
   height: 100%;
   margin: 0 10px 0 80px;
   .details-tit {
-    border-bottom: 1px solid rgb(207, 206, 206);
+    border-bottom: 1px solid #f2f2f2;
     background: #fff;
     a {
       color: rgb(77, 73, 73);
@@ -133,7 +134,7 @@ export default {
     padding: 10px;
     @extend %row;
     justify-content: space-between;
-    border: 1px solid rgb(148, 141, 141);
+    border: 1px solid #f2f2f2;
     border-radius: 0 0 5px 5px;
     .count {
       color: rgb(233, 63, 12);
@@ -148,7 +149,7 @@ export default {
   .reply-top {
     @extend %row;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(151, 148, 148);
+    border-bottom: 1px solid #f2f2f2;
     padding: 10px;
     margin-top: 20px;
     background: #fff;
@@ -168,7 +169,7 @@ export default {
     background: #fff;
     margin-top: 20px;
     padding: 10px;
-    border-bottom: 1px solid rgb(151, 148, 148);
+    border-bottom: 1px solid #f2f2f2;
   }
   .answer {
     padding: 10px 10px 0 10px;
@@ -178,12 +179,13 @@ export default {
       justify-content: flex-start;
       .normal {
         margin: 3px;
-        border: 1px solid rgb(158, 156, 156);
+        border: 1px solid #f2f2f2;
         border-radius: 8px;
         cursor: pointer;
       }
       .ite {
-        background: rgb(234, 235, 238);
+        background: #2196f3;
+        color: #fff;
       }
     }
     textarea,
@@ -191,24 +193,23 @@ export default {
       width: 100%;
       height: 200px;
       overflow: hidden;
+      border: 1px solid #f2f2f2;
     }
     .preview {
-      border: 1px solid rgb(34, 33, 33);
       display: flex;
     }
   }
-  .annotation{
+  .annotation {
     background: #fff;
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
-  
-    ul{
+
+    ul {
       @extend %col;
       background: #fff;
       align-items: flex-start;
       padding-left: 15px;
-
     }
   }
 }

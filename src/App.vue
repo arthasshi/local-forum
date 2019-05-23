@@ -13,6 +13,19 @@
     <router-view class="view"/>
   </div>
 </template>
+<script>
+import bus from '@/utils/bus.js';
+
+export default {
+  mounted() {
+    const this_ = this;
+    bus.$on('gotoPersonal', path => this_.$router.push(path));
+    bus.$on('gotoDtails', (path, msg) => this_.$router.push({ path, query: { msg } }));
+    bus.$on('handelChange', path => this_.$router.push(path));
+  },
+};
+</script>
+
 
 <style lang="scss">
 %row{
