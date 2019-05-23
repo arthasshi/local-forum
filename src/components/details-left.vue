@@ -35,8 +35,8 @@
     <div class="add">添加一条回复</div>
     <div class="answer">
       <div class="btn">
-        <mu-button small flat color="primary" :class="{ite:edi}" @click="change">编辑</mu-button>
-        <mu-button small flat color="primary" :class="{ite:pre}" @click="change">预览</mu-button>
+        <mu-button small flat color="primary" :class="{ite:edi}" @click="change1">编辑</mu-button>
+        <mu-button small flat color="primary" :class="{ite:pre}" @click="change2">预览</mu-button>
       </div>
       <textarea v-model="answer" v-if="edi" name="answer"></textarea>
       <div class="preview" v-else>{{answer}}</div>
@@ -83,9 +83,13 @@ export default {
     this.tti = this.rel;
   },
   methods: {
-    change() {
-      this.edi = !this.edi;
-      this.pre = !this.pre;
+    change1() {
+      this.edi = true;
+      this.pre = false;
+    },
+    change2() {
+      this.pre = true;
+      this.edi = false;
     }
   }
 };
