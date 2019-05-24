@@ -1,16 +1,18 @@
 <template>
 <div class="container">
     <div class="menu">
-        <button class="bt" @click="gotoHome">首页</button>
-        <button class="bt">会员</button>
-        <button class="bt">我的信息</button>
+        <mu-button color='primary' class="bt" @click="gotoHome">
+            首页
+        </mu-button>
+        <mu-button color='secondary' class="bt">
+            会员
+        </mu-button>
+        <mu-button color='success' class="bt">
+            我的信息
+        </mu-button>
     </div>
     <div class="content-a">
         <div class="item-a">
-         <!--    <mu-button color="darkBlack">
-            <mu-icon value="remove_circle" left></mu-icon>初级会员
-        </mu-button> -->
-        <!-- <div class="box-a">初级会员</div> -->
         <div class="wz">初级会员： 第37099位会员</div>
         <div class="wz">论坛 ID： KK886666</div>
         <div class="wz">注册时间： 2019-05-19 09:18:02</div>
@@ -18,8 +20,8 @@
         </div>
         <div class="box">
             <img src="../assets/tx.jpg">
-            <div class="box-b">我的收藏</div>
-            <div class="box-c">编辑信息</div>
+            <mu-button color='success' class="box-b">我的收藏</mu-button>
+            <mu-button color='black' class="box-c">编辑信息</mu-button>
         </div>
     </div>
     <div class="footer" v-for="(item,index) in list" :key="index">
@@ -101,7 +103,7 @@ export default {
     @extend %row;
     justify-content: flex-start;
     .bt{
-        margin: 0 10px;
+        margin: 0 17px;
     }
 }
 .content-a{
@@ -113,14 +115,10 @@ export default {
     .item-a{
         @extend %col;
         align-items: flex-start;
-        /* .box-a{
-            @extend %com;
-            background: black;
-        } */
         .wz{
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            margin: 7px 0;
+            margin: 10px 20px;
         }
     }
     .box{
@@ -129,17 +127,12 @@ export default {
 
         .box-b{
             @extend %com;
-            background:rgb(47, 255, 82);
-            margin: 10px 0;
+            margin: 10px 15px;
         }
         .box-c{
             @extend %com;
-            background: black;
         }
     }
-}
-.wz{
-    text-align: end;
 }
 .footer{
     width: 100%;
@@ -150,19 +143,19 @@ export default {
         @extend %row;
         justify-content: space-between;
         .zt{
-            font-size:20px;
-            margin-top: 5px;
+            font-size:16px;
+            margin: 5px 15px;
         }
     }
 }
 .ft-b{
     width: 100%;
     height:1px;
-    background: rgb(221, 219, 219);
+    background:#f2f2f2;
     margin-top: 10px;
 }
 .zt1{
-    font-size:20px;
+    font-size:16px;
     margin-top: 20px;
 }
 </style>
