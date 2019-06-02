@@ -3,15 +3,15 @@
   <div @click="pesonalClick" class="personal-data">个人资料设置</div>
 </template>
 <script>
-import bus from "@/utils/bus.js";
+import bus from '@/utils/bus.js';
 
 export default {
-  name: "PersonalSet",
+  name: 'PersonalSet',
   methods: {
     pesonalClick() {
-      bus.$emit("gotoPersonal", "/personal-data");
-    }
-  }
+      bus.$emit('gotoPersonal', '/personal-data');
+    },
+  },
 };
 </script>
 <style scoped>

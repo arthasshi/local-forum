@@ -52,59 +52,59 @@
   </div>
 </template>
 <script>
-import DetailsHeader from "@/components/details-header";
+import DetailsHeader from '@/components/details-header';
 
 export default {
-  name: "PersonalData",
+  name: 'PersonalData',
   components: {
-    DetailsHeader
+    DetailsHeader,
   },
   data() {
     return {
-      tit: "编辑",
+      tit: '编辑',
       usernameRules: [
-        { validate: val => !!val, message: "必须填写用户名" },
-        { validate: val => val.length >= 3, message: "用户名长度大于3" }
+        { validate: val => !!val, message: '必须填写用户名' },
+        { validate: val => val.length >= 3, message: '用户名长度大于3' },
       ],
       passwordRules: [
-        { validate: val => !!val, message: "必须填写密码" },
+        { validate: val => !!val, message: '必须填写密码' },
         {
           validate: val => val.length >= 3 && val.length <= 10,
-          message: "密码长度大于3小于10"
-        }
+          message: '密码长度大于3小于10',
+        },
       ],
-      argeeRules: [{ validate: val => !!val, message: "必须同意用户协议" }],
+      argeeRules: [{ validate: val => !!val, message: '必须同意用户协议' }],
       validateForm: {
-        username: "",
-        password: "",
-        mailbox: "",
-        city: "",
-        company: "",
-        Github: "",
-        microblog: "",
-        personalHomepage: "",
-        signature: "",
-        selfIntrodution: "",
+        username: '',
+        password: '',
+        mailbox: '',
+        city: '',
+        company: '',
+        Github: '',
+        microblog: '',
+        personalHomepage: '',
+        signature: '',
+        selfIntrodution: '',
 
-        isAgree: false
-      }
+        isAgree: false,
+      },
     };
   },
   methods: {
     submit() {
-      this.$refs.form.validate().then(result => {
-        console.log("form valid: ", result);
+      this.$refs.form.validate().then((result) => {
+        console.log('form valid: ', result);
       });
     },
     clear() {
       this.$refs.form.clear();
       this.validateForm = {
-        username: "",
-        password: "",
-        isAgree: false
+        username: '',
+        password: '',
+        isAgree: false,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 <style  lang='scss' scoped>

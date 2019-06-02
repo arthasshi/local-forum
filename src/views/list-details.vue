@@ -22,27 +22,27 @@
 
 <script>
 // @ is an alias to /src
-import PersonalSet from "@/components/personal-set";
-import bus from "@/utils/bus.js";
-import DetailsLeft from "@/components/details-left";
+import PersonalSet from '@/components/personal-set';
+import bus from '@/utils/bus.js';
+import DetailsLeft from '@/components/details-left';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     DetailsLeft,
-    PersonalSet
+    PersonalSet,
   },
   data() {
     return {
-      title: ""
+      title: '',
     };
   },
   mounted() {
     this.title = this.$route.query.msg;
-  }
+  },
 };
 </script>
-<style lang="scss" scope="">
+<style lang="scss" scoped>
 %row {
   display: flex;
   flex-direction: row;

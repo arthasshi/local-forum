@@ -57,17 +57,17 @@
 
 <script>
 // @ is an alias to /src
-import bus from "@/utils/bus.js";
-import PersonalSet from "@/components/personal-set";
+import bus from '@/utils/bus.js';
+import PersonalSet from '@/components/personal-set';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
-    PersonalSet
+    PersonalSet,
   },
   data() {
     return {
-      type: "杂谈"
+      type: '杂谈',
     };
   },
   methods: {
@@ -75,9 +75,9 @@ export default {
       this.type = type;
     },
     handleClick() {
-      bus.$emit("gotoDtails", "/list-details", this.type);
-    }
-  }
+      bus.$emit('gotoDtails', '/list-details', this.type);
+    },
+  },
 };
 </script>
 <style lang="scss" scope="">

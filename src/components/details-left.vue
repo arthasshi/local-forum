@@ -2,26 +2,18 @@
   <!-- 详情页的左侧组件 -->
   <div class="details">
     <details-header :tit="tit"></details-header>
-    <div class="details-tit">
-      <div class="tit">{{list.tit}}</div>
-      <div class="msg">
-        <div class="name">{{list.name}}</div>
-        {{list.rcord1}}
+    <div class='post-content'>
+      <div class='title'>{{list.title}}</div>
+      <div class='msg'>
+        <div class='msg-item'>{{list.name}}</div>
+        <div class='msg-item'>{{list.time}}</div>
+        <div class='msg-item'>点击次数：{{list.clickcount}}次</div>
       </div>
-    </div>
-    <div class="details-tit">
-      <div class="msg">{{list.content1}}</div>
-      <a :href="list.link" class="msg">{{list.link}}</a>
-      <div class="msg">{{list.content2}}</div>
-      <div class="msg">{{list. record2}}</div>
+      <div class='post'>{{list.post}}</div>
     </div>
     <div class="bottom">
-      <div class="bottom-left">
-        <mu-button small flat color="primary">加入收藏</mu-button>
-        <mu-button small flat color="primary" class="mic">微博</mu-button>
-        <mu-button small flat color="primary">点赞</mu-button>
-      </div>
-      <div class="count">725 次 点赞</div>
+        <mu-button small flat color="primary">收藏</mu-button>
+        <mu-button small flat color="primary" class="mic">感谢</mu-button>
     </div>
     <div class="reply-top">
       <div class="reply-top-left">0 回复</div>
@@ -53,31 +45,28 @@
   </div>
 </template>
 <script>
-import DetailsHeader from "@/components/details-header";
+import DetailsHeader from '@/components/details-header';
 
 export default {
-  name: "TittleTattle",
-  props: ["tit"],
+  name: 'TittleTattle',
+  props: ['tit'],
   data() {
     return {
       edi: true,
       pre: false,
-      answer: "",
-      tti: "",
+      answer: '',
+      tti: '',
       list: {
-        tit: "Go 语言实现的 Web Server：Caddy，终于发布 1.0 稳定版本了",
-        name: "polaris",
-        rcord1: " 26天之前 · 735 次点击 · 大约1小时之前 开始浏览 ",
-        content1: "官宣了。",
-        link: "www.baidu.com",
-        content2: "喜欢 Go 的朋友，还是可以试试的。",
-        record2:
-          "入群交流（该群和以上内容无关）：Go中文网 QQ交流群：731990104 或 加微信入微信群：274768166 备注：入群; 公众号：Go语言中文网"
-      }
+        title: 'Go 语言实现的 Web Server：Caddy，终于发布 1.0 稳定版本了',
+        name: '小明',
+        time:'21:30',
+        clickcount: '300',
+        post:'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+      },
     };
   },
   components: {
-    DetailsHeader
+    DetailsHeader,
   },
   mounted() {
     this.tti = this.rel;
@@ -90,8 +79,8 @@ export default {
     change2() {
       this.pre = true;
       this.edi = false;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>
@@ -110,45 +99,34 @@ export default {
   width: 72%;
   height: 100%;
   margin: 0 10px 0 80px;
-  .details-tit {
-    border-bottom: 1px solid #f2f2f2;
+  font-size: 16px;
+  .post-content{
     background: #fff;
-    a {
-      color: rgb(77, 73, 73);
-    }
-    a:hover,
-    .name:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
-    .tit {
-      width: 100%;
-      padding: 20px 10px;
+    .title{
+      font-size: 20px;
       display: flex;
-      align-items: flex-start;
-      font-size: 25px;
+      padding: 30px;
     }
-    .msg {
-      padding: 10px;
-      @extend %row;
+    .msg{
+      display: flex;
+      .msg-item{
+        margin-left:30px;
+      }
+    }
+    .post{
+      font-size: 14px;
+      color: rgb(155, 151, 151);
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
     }
   }
   .bottom {
     background: rgb(227, 231, 220);
     padding: 10px;
     @extend %row;
-    justify-content: space-between;
     border: 1px solid #f2f2f2;
     border-radius: 0 0 5px 5px;
-    .count {
-      color: rgb(233, 63, 12);
-    }
-    .mic {
-      margin: 0 30px;
-      a {
-        color: #fff;
-      }
-    }
   }
   .reply-top {
     @extend %row;
