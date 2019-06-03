@@ -53,6 +53,8 @@
   </div>
 </template>
 <script>
+import { getAllUsers, addUser } from '@/api/user';
+
 export default {
   name: '',
   components: {
@@ -130,6 +132,27 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    this.getAll();
+  },
+  methods: {
+    add() {
+      const userObj = {
+        name: '',
+        sdsd: '',
+      };
+      addUser(userObj).then((res) => {
+        console.log(res);
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    getAll() {
+      getAllUsers().then((res) => {
+        console.log(res);
+      });
+    },
   },
 };
 </script>
