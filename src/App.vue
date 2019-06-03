@@ -4,8 +4,9 @@
       <div class="title">走廊</div>
       <mu-text-field class="serach" placeholder="搜索"></mu-text-field>
       <div class="sub-menu">
-        <mu-button flat @click="test()">首页</mu-button>
-        <mu-button flat>我</mu-button>
+
+        <mu-button flat @click="jump">首页</mu-button>
+        <mu-button flat @click="gotoLink">我</mu-button>
         <mu-button flat>设置</mu-button>
         <mu-button flat>登出</mu-button>
       </div>
@@ -14,17 +15,18 @@
   </div>
 </template>
 <script>
-import bus from '@/utils/bus'
 export default {
   methods: {
-    test() {
-      bus.$emit('vis');
-    }
+    gotoLink() {
+      this.$router.push('/personal');
+    },
+    jump() {
+      this.$router.go(-1);
+    },
   },
-}
+};
+
 </script>
-
-
 <style lang="scss">
 %row{
   display: flex;
